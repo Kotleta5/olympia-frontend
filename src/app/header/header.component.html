@@ -1,0 +1,8 @@
+<mat-toolbar>
+  <img src="../../assets/logo_color.svg" />
+  <span class="spacer"></span>
+  <a [routerLink]="['/main']">Startseite</a>
+  <a [routerLink]="['/medal-table']">Medaillenspiegel</a>
+  <a [routerLink]="['/results']">Ergebnisse</a>
+  <button mat-stroked-button (click)="navigateToLogin()"><mat-icon>login</mat-icon>Anmelden</button>
+</mat-toolbar>

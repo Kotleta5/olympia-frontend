@@ -71,6 +71,9 @@
               "browserTarget": "olympia-frontend:build:development"
             }
           },
+          "options": {
+            "proxyConfig": "src/proxy.conf.js"
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {

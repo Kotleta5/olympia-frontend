@@ -1,0 +1,23 @@
+.welcome-logo {
+  height: auto;
+  width: 14rem;
+}
+
+p {
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.welcome {
+  display: grid;
+  grid-template-columns: 43% 57%;
+}
+
+section {
+  background-image: url("../../assets/background-photo.png");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  /* width: 100vh;
+  height: 100vh; */
+}

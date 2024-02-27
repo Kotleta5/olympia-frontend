@@ -1,0 +1,32 @@
+mat-toolbar {
+  height: 5rem;
+  //background-color: #f0f0f0;
+  background-color: #f7f5f5;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+button {
+  font-size: 16px;
+  border: none;
+}
+
+button:hover {
+  color: #771A2A;
+}
+
+.mat-mdc-outlined-button {
+  --mat-mdc-button-persistent-ripple-color: none 
+}
+
+a {
+  margin: 0 20px;
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: #771A2A;
+}
