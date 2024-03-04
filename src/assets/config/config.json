@@ -1,5 +1,5 @@
 {
   "rcfg": {
-    "baseUrl": "http://localhost:4200/olympic"
+    "baseUrl": "http://localhost:4200/api/"
   }
 }

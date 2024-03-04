@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SportService } from '../services/sport.service';
-import { Sport } from '../types/types';
+import { SportService } from '../../services/sport.service';
+import { Sport } from '../../types/types';
 
 @Component({
   selector: 'app-main',

@@ -31,19 +31,32 @@ $olympia-frontend-theme: mat.define-light-theme((color: (primary: $olympia-front
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body {
+html,
+body {
   height: 100%;
   padding: 0;
   margin: 0;
-  overflow: hidden;
   box-sizing: border-box;
 }
 
 body {
   font-family: "Olympic Sans", Arial, Helvetica, sans-serif;
-  /* background-image: url("./assets/background-photo.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative; */
-  
+
+}
+
+// table
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #f7f5f5;
+}
+
+/* .mdc-data-table__header-cell {
+  color: #771A2A;
+} */
+
+tr.mat-mdc-header-row.mdc-data-table__header-row.cdk-header-row.ng-star-inserted {
+  background-color: #f7f5f5;
+}
+
+mat-elevation-z8.mat-mdc-elevation-specific.mat-elevation-z8 {
+  box-shadow: -1px 2px 57px -30px rgba(0, 0, 0, 0.75);
 }

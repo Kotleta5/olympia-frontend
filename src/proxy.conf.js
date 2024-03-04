@@ -1,13 +1,13 @@
 const PROXY_CONFIG = [
   {
-    context: ["/olympic"],
-    target: "http://localhost:5000/",
+    context: ["/api"],
+    target: "http://localhost:3000/",
     changeOrigin: true,
     secure: true,
     debug: true,
-    pathRewrite: {
+    /* pathRewrite: {
       "^/olympic": "Olympic/",
-    },
+    }, */
   }
 ]
  

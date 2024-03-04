@@ -13,20 +13,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppConfig } from './app-config';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './login/login.component';
-import { MainComponent } from './main/main.component';
-import { MedalTableComponent } from './medal-table/medal-table.component';
-import { ResultsComponent } from './results/results.component';
+import { MainComponent } from './pages/main/main.component';
+import { MedalTableComponent } from './pages/medal-table/medal-table.component';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+import { SelectSportComponent } from './pages/select-sport/select-sport.component';
+import { TopAthletesComponent } from './components/top-athletes/top-athletes.component';
+import { FullResultsComponent } from './components/full-results/full-results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MainComponent,
-    ResultsComponent,
     MedalTableComponent,
     LoginComponent,
+    SelectSportComponent,
+    TopAthletesComponent,
+    FullResultsComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +48,8 @@ import { ResultsComponent } from './results/results.component';
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
+    FormsModule
   ],
   providers: [
     AppConfig,
