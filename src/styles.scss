@@ -49,14 +49,20 @@ body {
   background-color: #f7f5f5;
 }
 
-/* .mdc-data-table__header-cell {
-  color: #771A2A;
-} */
-
 tr.mat-mdc-header-row.mdc-data-table__header-row.cdk-header-row.ng-star-inserted {
   background-color: #f7f5f5;
 }
 
 mat-elevation-z8.mat-mdc-elevation-specific.mat-elevation-z8 {
   box-shadow: -1px 2px 57px -30px rgba(0, 0, 0, 0.75);
+}
+
+.header-1-component {
+  color: #771A2A;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+.main-section {
+  margin: 3rem 11rem;
 }

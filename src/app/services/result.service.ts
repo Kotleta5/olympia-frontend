@@ -12,7 +12,7 @@ export class ResultService {
   constructor(private http: HttpClient, private config: AppConfig) { }
 
   getTopAthletes(sport: string) {
-    return this.http.get<TopThreeAthletes[]>(`${this.config.getConfig().baseUrl}topThreeAtheltes/${sport}`);
+    return this.http.get<TopThreeAthletes>(`${this.config.getConfig().baseUrl}topThreeAtheltes/${sport}`);
   }
 
   getFullResults(sport: string, gender: string) {

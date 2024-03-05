@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ResultService } from '../../services/result.service';
 import { TopThreeAthletes } from '../../types/types';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-select-sport',
   templateUrl: './select-sport.component.html',
   styleUrls: ['./select-sport.component.scss']
 })
-export class SelectSportComponent implements OnInit {
+export class SelectSportComponent /* implements OnInit */ {
 
-  topAtheltes: TopThreeAthletes[] = [];
+  //topAtheltes: TopThreeAthletes[] = [];
   sport: string = '';
-  constructor(private resultService: ResultService) { }
+  constructor(/* private resultService: ResultService, */ private router: Router) { }
 
-  ngOnInit(): void {
+  /* ngOnInit(): void {
     this.getTopAthletes(this.sport);
 
   }
@@ -27,6 +28,10 @@ export class SelectSportComponent implements OnInit {
         console.error(err);
       }
     })
-  }
+  } */
 
+  navigateToTopAthletes(sport: string) {
+    console.log('sport in navigate function', sport);
+    this.router.navigate(['topAthletes', sport]);
+  }
 }

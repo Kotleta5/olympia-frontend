@@ -1,1 +1,56 @@
-<p>top-athletes works!</p>
+<app-header></app-header>
+<section class="main-section">
+  <h1 class="header-1-component">Ergebnisse Paris 2024</h1>
+  <div style="background-color: white;">
+    <!-- <h1>Sportarten</h1> -->
+    <div style="display: flex; flex-direction: column; margin-bottom: 6rem;">
+      <!-- <div style="background-color: aquamarine;">
+        <div style="background-color: beige; margin: 2rem 4rem;">
+          <h1>Männer</h1>
+
+        </div>
+      </div> -->
+
+      <div style="background-color: #f7f5f5">
+        <div style="background-color: #f7f5f5; margin: 2rem 4rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <h1 style="display: inline-block;">Frauen</h1>
+            <button style="display: inline-block; justify-content: end; background-color: #771A2A; color: white;" mat-stroked-button (click)="navigateToFullResults(sport, 'female')">Ergebnisse vollständig anzeigen</button>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 3rem;">
+            <mat-card class="example-card">
+              <mat-card-header>
+                <div mat-card-avatar class="dot" style="background-color: #CD7F32"></div>
+                <mat-card-subtitle>Bronze</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                contry
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="example-card">
+              <mat-card-header>
+                <div mat-card-avatar class="dot" style="background-color: #C0C0C0"></div>
+                <mat-card-subtitle>Silver</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                contry 
+              </mat-card-content>
+            </mat-card>
+
+            <mat-card class="example-card">
+              <mat-card-header>
+                <div mat-card-avatar class="dot" style="background-color: #FCC861"></div>
+                <mat-card-subtitle>Gold</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                contry 
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

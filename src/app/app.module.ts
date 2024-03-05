@@ -22,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 import { SelectSportComponent } from './pages/select-sport/select-sport.component';
 import { TopAthletesComponent } from './components/top-athletes/top-athletes.component';
 import { FullResultsComponent } from './components/full-results/full-results.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { FullResultsComponent } from './components/full-results/full-results.com
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatCardModule,
   ],
   providers: [
     AppConfig,

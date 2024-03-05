@@ -1,19 +1,19 @@
 <app-header></app-header>
-<section style="margin: 3rem 10rem;">
-  <h1 style="color: rgb(50, 44, 44); font-size: 2.5rem; text-transform: uppercase;">Ergebnisse Paris 2024</h1>
+<section class="main-section">
+  <h1 class="header-1-component">Ergebnisse Paris 2024</h1>
   <div style="background-color: white;">
     <h1>Sportarten</h1>
     <div style="display: flex; margin-bottom: 6rem;">
-      <button class="btn-1" type="submit" (click)="getTopAthletes('100m-Sprint')">
+      <button class="btn-1" type="submit" (click)="navigateToTopAthletes('100m-Sprint')">
         <img src="../../assets/sprint.png" alt="100m-Sprint" />
         </button>
-      <button class="btn-2" type="submit" (click)="getTopAthletes('Schwimmen')">
+      <button class="btn-2" type="submit" (click)="navigateToTopAthletes('Schwimmen')">
         <img src="../../assets/swimming.png" alt="Schwimmen" />
       </button>
-      <button class="btn-3" type="submit" (click)="getTopAthletes('Weitsprung')">
+      <button class="btn-3" type="submit" (click)="navigateToTopAthletes('Weitsprung')">
         <img src="../../assets/weitsprung.png" alt="Weitsprung" />
       </button>
-      <button class="btn-4" type="submit" (click)="getTopAthletes('Springreiten')">
+      <button class="btn-4" type="submit" (click)="navigateToTopAthletes('Springreiten')">
         <img src="../../assets/springreiten.png" alt="Springreiten" />
       </button>
     </div>
