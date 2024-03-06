@@ -26,8 +26,6 @@ export class TopAthletesComponent {
     this.resultService.getTopAthletes(sport).subscribe({
       next: (data: TopThreeAthletes) => {
         this.topAtheltes = data;
-        this.topAtheltes.men.map(myMen => console.log(myMen));
-        this.topAtheltes.women.map(myMen => console.log(myMen));
         console.log('TOP ATHLETEs in top ', this.topAtheltes);
       }, error: (err) => {
         console.error(err);
