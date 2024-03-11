@@ -17,7 +17,6 @@ export class TopAthletesComponent {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.sport = params['sport'];
-      console.log(this.sport, 'sport JJJJ');
       this.getTopAthletes(this.sport);
     });
   }
@@ -26,15 +25,10 @@ export class TopAthletesComponent {
     this.resultService.getTopAthletes(sport).subscribe({
       next: (data: TopThreeAthletes) => {
         this.topAtheltes = data;
-        console.log('TOP ATHLETEs in top ', this.topAtheltes);
       }, error: (err) => {
         console.error(err);
       }
     })
-  }
-
-  getObjectKeys(): any {
-    return Object.keys(this.topAtheltes);
   }
 
   navigateToFullResults(sport: string, gender: string) {

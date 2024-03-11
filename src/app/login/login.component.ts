@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -8,35 +8,44 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   hide = true;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {}
- 
- loginForm = this.formBuilder.group({
-  username: ['', Validators.required],
-  password: ['', Validators.required],
- });
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { }
 
- onSubmit(){
-  if (this.loginForm.valid) {
-    console.log(this.loginForm.value);
-    const {username, password} = this.loginForm.value;
+  ngOnInit(): void {
+    this.authService.isAuthenticated().add(() => {
+      if (this.authService.role === 'admin') {
+        this.router.navigate(['admin'])
+      } else if (this.authService.role === 'judger') {
+        this.router.navigate(['judger']);
+      }
+    });
+  }
 
+  loginForm = this.formBuilder.group({
+    username: ['', Validators.required],
+    password: ['', Validators.required],
+  });
+
+  onSubmit() {
+    if (this.loginForm.valid) {
+      const { username, password } = this.loginForm.value;
+      this.authenticateUser(username, password);
+    }
+  }
+
+  private authenticateUser(username: string | null | undefined, password: string | null | undefined) {
     if (username && password) {
-      this.router.navigate(['/results']);
-      this.authService.login({username, password}).subscribe({
-        next: (response: any) => {
-          if (response && response.token) {
-            localStorage.setItem('token', response.token);
-            this.router.navigate(['/results']);
-          }
-        },
-        error: (err: Error) => {
-          console.error(err);
+      this.authService.login({ username, password }).add(() => {
+        if (this.authService.accessToken && this.authService.role === 'admin') {
+          this.router.navigate(['admin'])
+        } else if (this.authService.accessToken && this.authService.role === 'judger') {
+          this.router.navigate(['judger']);
+        } else {
+          alert('Login failed. Please try again');
         }
       })
     }
   }
- }
 }

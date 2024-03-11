@@ -1,42 +1,42 @@
 <app-header></app-header>
 <section class="main-section">
-  <h1 class="header-1-component">Results Paris 2024</h1>
+  <h1 class="header-1-component">Paris 2024</h1>
   <div style="background-color: white;">
+    <h1>Ergebnisse für {{ sport }}</h1>
     <div style="display: flex; flex-direction: column; margin-bottom: 6rem;">
-      
-      <div style="background-color: #f7f5f5; margin-bottom: 4rem;">
-        <div style="background-color: #f7f5f5; margin: 2rem 4rem;">
-          <div style="display: flex; align-items: center; justify-content: space-between;">
-            <h1 style="display: inline-block;">Men</h1>
-            <button style="display: inline-block; justify-content: end; background-color: #771A2A; color: white;" mat-stroked-button (click)="navigateToFullResults(sport, 'male')">See full results</button>
-          </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 3rem;">
-            <mat-card class="example-card" *ngFor="let item of topAtheltes.men">
-              <mat-card-header>
-                <div mat-card-avatar class="dot" style="background-color: #CD7F32"></div>
-                <mat-card-subtitle>{{item.result}}</mat-card-subtitle>
-              </mat-card-header>
-              <mat-card-content>{{item.country}}</mat-card-content>
+      <div class="main-container">
+        <div class="main-content">
+          <div class="content-toolbar">
+            <h1 class="content-header">Männer</h1>
+            <button class="content-btn" style="color: white;" mat-stroked-button
+              (click)="navigateToFullResults(sport, 'male')">
+              Ergebnisse vollständig ansehen</button>
+          </div>
+          <div class="content-grid">
+            <mat-card *ngFor="let item of topAtheltes.men">
+              <mat-card-content><img src="../../../assets/{{item.result}}-medal.png" class="img-medal" />
+                <p>{{item.germanCountryName}}</p>
+              </mat-card-content>
             </mat-card>
           </div>
         </div>
       </div>
 
-      <div style="background-color: #f7f5f5">
-        <div style="background-color: #f7f5f5; margin: 2rem 4rem;">
-          <div style="display: flex; align-items: center; justify-content: space-between;">
-            <h1 style="display: inline-block;">Women</h1>
-            <button style="display: inline-block; justify-content: end; background-color: #771A2A; color: white;" mat-stroked-button (click)="navigateToFullResults(sport, 'female')">See full results</button>
+      <div class="main-container">
+        <div class="main-content">
+          <div class="content-toolbar">
+            <h1 class="content-header">Frauen</h1>
+            <button class="content-btn" style="color: white;" mat-stroked-button
+              (click)="navigateToFullResults(sport, 'female')">
+              Ergebnisse vollständig ansehen
+            </button>
           </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-gap: 3rem;">
-            <mat-card class="example-card" *ngFor="let item of topAtheltes.women">
-              <mat-card-header>
-                <div mat-card-avatar class="dot" style="background-color: #CD7F32"></div>
-                <mat-card-subtitle>{{item.result}}</mat-card-subtitle>
-              </mat-card-header>
-              <mat-card-content>{{item.country}}</mat-card-content>
+          <div class="content-grid">
+            <mat-card *ngFor="let item of topAtheltes.women">
+              <mat-card-content><img src="../../../assets/{{item.result}}-medal.png" class="img-medal" />
+                <p>{{item.germanCountryName}}</p>
+              </mat-card-content>
             </mat-card>
           </div>
         </div>

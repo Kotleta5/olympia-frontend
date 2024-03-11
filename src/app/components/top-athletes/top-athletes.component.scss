@@ -1,3 +1,35 @@
+.main-container {
+  background-color: #f7f5f5;
+  margin-bottom: 4rem;
+}
+
+.main-content {
+  background-color: #f7f5f5;
+  margin: 2rem 4rem;
+}
+
+.content-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content-header {
+  display: inline-block;
+}
+
+.content-btn {
+  display: inline-block;
+  justify-content: end;
+  background-color: #771A2A;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 3rem;
+}
+
 .dot {
   height: 20px;
   width: 20px;
@@ -11,6 +43,15 @@
 }
 
 mat-mdc-card {
-width: 1rem;
-height: auto;
+  width: 1rem;
+  height: auto;
+}
+
+mat-card-content {
+  margin: 0 auto;
+}
+
+.img-medal {
+  width: 6rem;
+  height: auto;
 }

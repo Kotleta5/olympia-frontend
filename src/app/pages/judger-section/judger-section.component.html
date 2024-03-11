@@ -1,0 +1,99 @@
+<app-header></app-header>
+
+<section class="main-section">
+  <div style="display: flex; flex-direction: row; align-items: center; gap: 10px;">
+    <h1 class="header-1-component">Welcome to the judger section</h1>
+  </div>
+  <div style="display: inline-block;">
+
+    <mat-form-field>
+      <mat-label>Sport</mat-label>
+      <mat-select [(ngModel)]="selectedSport" (ngModelChange)="filterFullData()">
+        <mat-option [value]="">None</mat-option>
+        <mat-option *ngFor="let sport of sports" [value]="sport">{{sport}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Geschlecht</mat-label>
+      <mat-select [(ngModel)]="selectedGender" (ngModelChange)="filterFullData()">
+        <mat-option [value]="">None</mat-option>
+        <mat-option *ngFor="let gender of genders" [value]="gender">{{gender}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Country</mat-label>
+      <mat-select [(ngModel)]="selectedCountry" (ngModelChange)="filterFullData()">
+        <mat-option [value]="">None</mat-option>
+        <mat-option *ngFor="let country of countries" [value]="country">{{country}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="table-container" style="margin-top: 2rem;">
+    <table mat-table [dataSource]="fullData" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">
+          <p>{{ element.athlete_id }}</p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="athlete">
+        <th mat-header-cell *matHeaderCellDef>Athlete</th>
+        <td mat-cell *matCellDef="let element">
+          <p>{{ element.athlete }}</p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef>Gender</th>
+        <td mat-cell *matCellDef="let element">
+          <p>{{ element.gender }}</p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="sport">
+        <th mat-header-cell *matHeaderCellDef>Sport</th>
+        <td mat-cell *matCellDef="let element">{{ element.sport }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="country">
+        <th mat-header-cell *matHeaderCellDef>Country</th>
+        <td mat-cell *matCellDef="let element">
+          <p>{{ element.country }}</p>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="result">
+        <th mat-header-cell *matHeaderCellDef>Result</th>
+        <td mat-cell *matCellDef="let element">
+          <p *ngIf="element.athlete_id !== selectedRow?.athlete_id">{{ element.result }}</p>
+          <form *ngIf="element.athlete_id === selectedRow?.athlete_id" [formGroup]="inputResultForm" (ngSubmit)="updateResult()">
+            <mat-form-field class="full-width">
+              <input id="result" type="string"
+                formControlName="inputResult" matInput>
+            </mat-form-field>
+          </form>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button *ngIf="element.athlete_id === selectedRow?.athlete_id" (click)="updateResult()"
+            style="background-color: #f7f5f5; border-radius: 3px;">
+            <mat-icon style="color: #771A2A;">done</mat-icon>
+          </button>
+          <button *ngIf="element.athlete_id !== selectedRow?.athlete_id" (click)="editRow(element)"
+            style="background-color: #f7f5f5; border-radius: 3px;">
+            <mat-icon style="color: #771A2A;">edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</section>

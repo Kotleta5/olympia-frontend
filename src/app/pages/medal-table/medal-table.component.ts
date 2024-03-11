@@ -7,6 +7,8 @@ import { Medalist } from '../../types/types';
   styleUrls: ['./medal-table.component.scss']
 })
 export class MedalTableComponent implements OnInit {
+  readonly sports: string[] = ['Weitsprung', '100m-Sprint', 'Springreiten', 'Schwimmen'];
+  readonly displayedColumns: string[] = ['country', 'athlete', 'sport', 'medals'];
   medalists: Medalist[] = [];
   countries: string[] = [];
   selectedSport: string | undefined;
@@ -20,20 +22,26 @@ export class MedalTableComponent implements OnInit {
   }
 
   filterMedalists() {
-    if (this.selectedSport && this.selectedCountry) {
-      this.medalists = this.medalistService.medalists.filter((data) => data.country === this.selectedCountry && data.sport === this.selectedSport);
-    }
-    else if (this.selectedSport && !this.selectedCountry) {
-      this.medalists = this.medalistService.medalists.filter((data) => data.sport === this.selectedSport);
-    }
-    else if (!this.selectedSport && this.selectedCountry) {
-      this.medalists = this.medalistService.medalists.filter((data) => data.country === this.selectedCountry);
-    }
-    else {
-      this.medalists = this.medalistService.medalists;
+    if (!this.selectedSport && !this.selectedCountry) {
+      this.medalists = this.medalistService.medalists
+    } else {
+      this.medalists = this.medalistService.medalists.filter((data) => 
+      (!this.selectedSport || this.selectedSport === data.sport) &&
+      (!this.selectedCountry || this.selectedCountry === data.germanCountryName))
     }
   }
 
-  sports: string[] = ['Weitsprung', '100m-Sprint', 'Springreiten', 'Schwimmen'];
-  displayedColumns: string[] = ['country', 'athlete', 'sport', 'medals'];
+  selectMedalClass(result: number): string {
+    let cssClass = '';
+    if (result === 1) {
+      cssClass = 'dot-gold';
+    } else if (result === 2) {
+      cssClass = 'dot-silver';
+    } else if (result === 3) {
+      cssClass = 'dot-bronze';
+    } else {
+      cssClass = '';
+    }
+    return cssClass;
+  }
 }

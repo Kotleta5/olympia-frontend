@@ -1,8 +1,13 @@
 <mat-toolbar>
   <img src="../../assets/logo_color.svg" />
   <span class="spacer"></span>
-  <a [routerLink]="['/main']">Home</a>
-  <a [routerLink]="['/medal-table']">Medal Table</a>
-  <a [routerLink]="['/sport']">Results</a>
-  <button mat-stroked-button (click)="navigateToLogin()"><mat-icon>login</mat-icon>Sign in</button>
+  <a [routerLink]="['/main']">Startseite</a>
+  <a [routerLink]="['/country-medals']">Länderübersicht</a>
+  <a [routerLink]="['/medal-table']">Medaillenspiegel</a>
+  <a [routerLink]="['/sport']">Ergebnisse</a>
+  <button *ngIf="!isAuthenticated" mat-stroked-button
+    (click)="navigateToLogin()"><mat-icon>login</mat-icon>Anmelden</button>
+  <button *ngIf="isAuthenticated" mat-stroked-button (click)="logout()">
+    Abmelden
+  </button>
 </mat-toolbar>

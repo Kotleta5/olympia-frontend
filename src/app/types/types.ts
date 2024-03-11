@@ -1,15 +1,5 @@
-export interface Sport_temp {
-Sports: Sport[];
-Error: string | undefined;
-}
-
-export interface Sport {
-  ID: number;
-  Name: string;
-}
-/* --------my types------------- */
-
 export interface FullData {
+  athlete_id: number;
   gender: string;
   athlete: string;
   sport: string;
@@ -25,6 +15,7 @@ export interface TopThreeAthletes {
 export interface TopAthletes {
   result: number;
   country: string;
+  germanCountryName: string;
 }
 
 export interface SportResult extends TopAthletes {
@@ -35,12 +26,26 @@ export interface Medalist extends SportResult {
   sport: string;
 }
 
-export interface CountryMedals {
-  country: string;
-  medals: {
-    gold: number;
-    silver: number;
-    bronze: number;
-    total: number;
-  }
+export interface CountryMedal {
+  countryCode: string;
+  germanCountryName: string;
+  medals: Medals;
+}
+
+export interface Medals {
+  gold: number;
+  silver: number;
+  bronze: number;
+  total: number;
+}
+
+export interface User {
+  username: string;
+  password: string;
+  role: string;
+}
+
+export interface UpdateResult {
+  id: number;
+  result: number;
 }

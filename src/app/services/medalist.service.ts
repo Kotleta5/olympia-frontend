@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 export class MedalistService {
   medalists: Medalist[] = [];
   countries: string[] = [];
+
   constructor(private http: HttpClient, private config: AppConfig) { }
 
   public fetchMedalists(): Subscription {

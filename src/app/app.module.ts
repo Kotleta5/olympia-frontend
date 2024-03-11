@@ -22,7 +22,11 @@ import { FormsModule } from '@angular/forms';
 import { SelectSportComponent } from './pages/select-sport/select-sport.component';
 import { TopAthletesComponent } from './components/top-athletes/top-athletes.component';
 import { FullResultsComponent } from './components/full-results/full-results.component';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import { CountryMedalsComponent } from './pages/country-medals/country-medals.component';
+import { AdminSectionComponent } from './pages/admin-section/admin-section.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { JudgerSectionComponent } from './pages/judger-section/judger-section.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,9 @@ import {MatCardModule} from '@angular/material/card';
     SelectSportComponent,
     TopAthletesComponent,
     FullResultsComponent,
+    CountryMedalsComponent,
+    AdminSectionComponent,
+    JudgerSectionComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +59,7 @@ import {MatCardModule} from '@angular/material/card';
     MatSelectModule,
     FormsModule,
     MatCardModule,
+    MatExpansionModule,
   ],
   providers: [
     AppConfig,

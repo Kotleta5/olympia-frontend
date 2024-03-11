@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<section class="main-section">
+  <h1 class="header-1-component">Länderübersicht</h1>
+  <div style="background-color: white;">
+    <div class="table-container">
+      <table mat-table [dataSource]="countryMedalsList" class="mat-elevation-z8">
+        <ng-container matColumnDef="country">
+          <th mat-header-cell *matHeaderCellDef><p>Land</p></th>
+            <td mat-cell *matCellDef="let element" class="country-flag"><img
+              src="https://flagsapi.com/{{element.countryCode}}/flat/64.png" style="width: 3rem; height: auto;">
+            <p>{{ element.germanCountryName }}</p>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="gold">
+          <th mat-header-cell *matHeaderCellDef>Gold</th>
+          <td mat-cell *matCellDef="let element">
+            <p class="dot" ngClass="dot-gold">{{ element.medals.gold }}</p>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="silver">
+          <th mat-header-cell *matHeaderCellDef>Silber</th>
+          <td mat-cell *matCellDef="let element">
+            <p class="dot" ngClass="dot-silver">{{ element.medals.silver }}</p>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="bronze">
+          <th mat-header-cell *matHeaderCellDef>Bronze</th>
+          <td mat-cell *matCellDef="let element">
+            <p class="dot" ngClass="dot-bronze">{{ element.medals.bronze }}</p>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="total">
+          <th mat-header-cell *matHeaderCellDef>Gesamt</th>
+          <td mat-cell *matCellDef="let element">{{ element.medals.total }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+
+  </div>
+</section>

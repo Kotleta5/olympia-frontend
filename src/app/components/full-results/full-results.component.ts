@@ -9,8 +9,9 @@ import { SportResult } from 'src/app/types/types';
   styleUrls: ['./full-results.component.scss']
 })
 export class FullResultsComponent implements OnInit {
-  sport: string = '';
-  gender: string = '';
+  readonly sports: string[] = ['Weitsprung', '100m-Sprint', 'Springreiten', 'Schwimmen'];
+  readonly genders: string[] = ['male', 'female'];
+  readonly displayedColumns: string[] = ['medals', 'country', 'athlete'];
   fullResults: SportResult[] = [];
   selectedGender: string = '';
   selectedSport: string = '';
@@ -19,28 +20,34 @@ export class FullResultsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.sport = params['sport'];
-      this.gender = params['gender'];
-      this.getFullResults(this.sport, this.gender);
-    })
-  }
+      this.selectedSport = params['sport'];
+      this.selectedGender = params['gender'];
 
-  async getFullResults(sport: string, gender: string) {
-    this.resultService.getFullResults(sport, gender).subscribe({
-      next: (data: SportResult[]) => {
-        this.fullResults = data;
-        console.log('FULLDATA!!!', this.fullResults);
-      }, error: (err) => {
-        console.error(err);
-      }
+      this.resultService.getFullResults(this.selectedSport, this.selectedGender)
+        .add(() => this.fullResults = this.resultService.fullResults);
     })
   }
 
   filterFullResults() {
-
+    if (this.selectedSport && this.selectedGender) {
+      this.resultService.getFullResults(this.selectedSport, this.selectedGender).add(() => this.fullResults = this.resultService.fullResults);
+    } else {
+      this.fullResults = this.resultService.fullResults;
+    }
   }
-  
-  sports: string[] = ['Weitsprung', '100m-Sprint', 'Springreiten', 'Schwimmen'];
-  genders: string[] = ['male', 'female'];
-  displayedColumns: string[] = ['medals', 'country', 'athlete'];
+
+  selectMedalClass(result: number): string {
+    let cssClass = '';
+    if (result === 1) {
+      cssClass = 'dot-gold';
+    } else if (result === 2) {
+      cssClass = 'dot-silver';
+    } else if (result === 3) {
+      cssClass = 'dot-bronze';
+    } else {
+      cssClass = '';
+    }
+    return cssClass;
+  }
+
 }

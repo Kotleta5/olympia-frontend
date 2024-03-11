@@ -54,8 +54,12 @@ tr.mat-mdc-header-row.mdc-data-table__header-row.cdk-header-row.ng-star-inserted
   background-color: #f7f5f5;
 }
 
-mat-elevation-z8.mat-mdc-elevation-specific.mat-elevation-z8 {
-  box-shadow: -1px 2px 57px -30px rgba(0, 0, 0, 0.75);
+.table-container {
+  max-height: 28.8rem;
+  max-width: 100%;
+  overflow: auto;
+  margin-bottom: 6rem;
+  box-shadow: 1px 2px 11px 1px rgba(0, 0, 0, 0.2);
 }
 
 .header-1-component {

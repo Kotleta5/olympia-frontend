@@ -26,13 +26,14 @@
       <table mat-table [dataSource]="medalists" class="mat-elevation-z8">
         <ng-container matColumnDef="country">
           <th mat-header-cell *matHeaderCellDef>Land</th>
-          <td mat-cell *matCellDef="let element">{{ element.country }}</td>
+          <td mat-cell *matCellDef="let element" class="country-flag"><img
+            src="https://flagsapi.com/{{element.country}}/flat/64.png" style="width: 3rem; height: auto;">
+          <p>{{ element.germanCountryName }}</p></td>
         </ng-container>
 
         <ng-container matColumnDef="athlete">
           <th mat-header-cell *matHeaderCellDef>Athlet</th>
-          <td style="display: flex; align-items: center; gap: 10px;" mat-cell *matCellDef="let element">
-            <mat-icon>account_circle</mat-icon>
+          <td mat-cell *matCellDef="let element">
             <p>{{ element.athlete }}</p>
           </td>
         </ng-container>
@@ -44,7 +45,9 @@
 
         <ng-container matColumnDef="medals">
           <th mat-header-cell *matHeaderCellDef>Erzielte Medaillen</th>
-          <td mat-cell *matCellDef="let element">{{ element.result }}</td>
+          <td mat-cell *matCellDef="let element">
+            <p class="dot" [ngClass]="selectMedalClass(element.result)">{{ element.result }}</p>
+          </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
